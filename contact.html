@@ -126,9 +126,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -254,6 +251,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- ./col -->
             </div>
+
             <div class="col-md-12" style="padding:0px; margin-top:2%">
 
                 <!-- Custom Tabs (Pulled to the right) -->
@@ -263,12 +261,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li><a href="#tab_2-2" data-toggle="tab">Tab 2</a></li>
                         <li><a href="#tab_3-2" data-toggle="tab">Tab 3</a></li>
 
-                        <li class="header pull-left"><i class="fa fa-th"></i>全部联系人</li>
+                        <li class="header pull-left" ><i class="fa fa-th" ></i><span id="all-friend">全部联系人</span></li>
                         <li class="header pull-left"><a href="./add.html" style="padding-top: 3px"><i
                                 class="fa fa-fw fa-user-plus"></i></a></li>
+                        <li class="header pull-left"><a style="padding-top: 5px" title="按下后即可直接修改，再次按下保存"><i
+                                class="fa fa-fw fa-edit" onclick="changeEditable()"></i></a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="box tab-pane active" id="tab_1-1">
+                            <div class="box-body">
+                                <ul class="products-list product-list-in-box">
+                                    <li class="item">
+                                        <div class="product-img">
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
+                                                 style="size:80px">
+                                            <p style="text-align: center" class="contact-message" ><em>Ye Wenting </em></p>
+                                        </div>
+                                        <div class="product-info">
+                                            <p class="product-title"><span class="contact-message"> Ye Wenting </span></p>
+                                            <p><em>Tel: </em><span class="contact-message">13241260146</span></p>
+                                            <p><em>Location: </em><span class="contact-message"> Beijing, China</span>
+                                            </p>
+                                            <p><em>Email： </em><span
+                                                    class="contact-message">Wenting_Ye@outlook.com</span></p>
+                                        </div>
+                                    </li>
+                                    <!-- /.item -->
+                                    <li class="item">
+                                        <div class="product-img">
+                                            <img src="img/user5.png" alt="Product Image" class="img-circle"
+                                                 style="size:80px">
+                                            <p style="text-align: center"><em>Xxx </em></p>
+                                        </div>
+                                        <div class="product-info">
+                                            <p class="product-title" class="contact-message"> Xie Xiaoxin </p>
+                                            <p><em>Tel: </em><span class="contact-message">13241260146</span></p>
+                                            <p><em>Location: </em><span class="contact-message"> Nanjing, China</span>
+                                            </p>
+                                            <p><em>Email： </em><span class="contact-message">xxxxxxx@uutlook.com</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <div class="product-img">
+                                            <img src="img/user2.png" alt="Product Image" class="img-circle"
+                                                 style="size:80px">
+                                            <p style="text-align: center"><em>Hhs </em></p>
+                                        </div>
+                                        <div class="product-info">
+                                            <p class="product-title"><span
+                                                    class="contact-message"> Huang Haoshuo </span></p>
+                                            <p><em>Tel: </em><span class="contact-message">13241260146</span></p>
+                                            <p><em>Location: </em> <span class="contact-message">Beijing, China</span>
+                                            </p>
+                                            <p><em>Email： </em><span class="contact-message">xxxxxxx@uutlook.com</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- /.box-body
+                            <div class="box-footer text-center">
+                                <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                            </div>
+                            <!-- /.box-footer -->
+                        </div>
+                        <div class="box tab-pane" id="tab_2-2">
                             <div class="box-body">
                                 <ul class="products-list product-list-in-box">
                                     <li class="item">
@@ -284,45 +343,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p><em>Email： </em>Wenting_Ye@outlook.com</p>
                                         </div>
                                     </li>
-                                    <!-- /.item -->
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user5.png" alt="Product Image" class="img-circle"
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
                                                  style="size:80px">
-                                            <p style="text-align: center"><em>Xxx </em></p>
+                                            <p style="text-align: center"><em>Ye Wenting </em></p>
                                         </div>
                                         <div class="product-info">
-                                            <p class="product-title"> Xie Xiaoxin </p>
-                                            <p><em>Tel: </em>13241260146</p>
-                                            <p><em>Location: </em> Nanjing, China</p>
-                                            <p><em>Email： </em>xxxxxxx@uutlook.com</p>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <div class="product-img">
-                                            <img src="img/user2.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center"><em>Hhs </em></p>
-                                        </div>
-                                        <div class="product-info">
-                                            <p class="product-title"> Huang Haoshuo </p>
+                                            <p class="product-title"> Ye Wenting </p>
                                             <p><em>Tel: </em>13241260146</p>
                                             <p><em>Location: </em> Beijing, China</p>
-                                            <p><em>Email： </em>xxxxxxx@uutlook.com</p>
+                                            <p><em>Email： </em>Wenting_Ye@outlook.com</p>
                                         </div>
                                     </li>
-                                </ul>
-                            </div>
-
-                            <!-- /.box-body
-                            <div class="box-footer text-center">
-                                <a href="javascript:void(0)" class="uppercase">View All Products</a>
-                            </div>
-                            <!-- /.box-footer -->
-                        </div>
-                        <div class="box tab-pane" id="tab_2-2">
-                            <div class="box-body">
-                                <ul class="products-list product-list-in-box">
                                     <li class="item">
                                         <div class="product-img">
                                             <img src="img/user1.png" alt="Product Image" class="img-circle"
@@ -365,84 +398,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <strong>Copyright © 2016 <a href="https://github.com/YeWenting">Ye Wenting</a>.</strong> All rights reserved.
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript::;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript::;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked="">
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
 </div>
 <!-- ./wrapper -->
+
+<script language="JavaScript">
+    var state = 0
+    item = document.getElementsByClassName("contact-message");
+
+    function changeEditable()
+    {
+        if (state == 0) {
+            document.getElementById("all-friend").innerHTML = "全部联系人（可编辑）"
+
+            var i;
+            for (i = 0; i < item.length; i++)
+                item[i].setAttribute("contentEditable", "true")
+        }
+        else
+        {
+            document.getElementById("all-friend").innerHTML = "全部联系人"
+
+            var i;
+            for (i = 0; i < item.length; i++)
+                item[i].setAttribute("contentEditable", "false")
+        }
+        state = 1 - state;
+    }
+</script>
 
 <!-- REQUIRED JS SCRIPTS -->
 
