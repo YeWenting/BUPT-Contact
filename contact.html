@@ -24,6 +24,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <link rel="stylesheet" href="./css/skin-blue.min.css">
 
+    <style>
+        .product-img
+        {
+            margin-top: 2%;
+            margin-left: 2%;
+        }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -273,17 +281,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <ul class="products-list product-list-in-box">
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center" class="contact-message" ><em>Ye Wenting </em></p>
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Ye Wenting </h4>
                                         </div>
                                         <div class="product-info">
-                                            <p class="product-title"><span class="contact-message"> Ye Wenting </span></p>
-                                            <p><em>Tel: </em><span class="contact-message">13241260146</span></p>
-                                            <p><em>Location: </em><span class="contact-message"> Beijing, China</span>
-                                            </p>
-                                            <p><em>Email： </em><span
-                                                    class="contact-message">Wenting_Ye@outlook.com</span></p>
+                                            <div class="callout callout-warning pull-right" style="display: none">
+                                                <h4>Invalid information</h4>
+                                                <br>
+                                                <p></p>
+                                            </div>
+                                            <p class="product-title contact-message" onblur="editName(this)" id="xxx"> Ye Wenting  </p>
+                                            <p><em>Tel: </em><span class="contact-message" onblur="editTelephone(this)">0591-83796279</span></p>
+                                            <p><em>Mob: </em><span class="contact-message" onblur="editCellphone(this)">13241260146</span></p>
+                                            <p><em>Loc: </em><span class="contact-message" >Xitucheng Road 10th, Beijing, China</span></p>
+                                            <p><em>QQ: </em><span class="contact-message" onblur="editQQ(this)" >471731724</span></p>
+                                            <p><em>Email：</em><span class="contact-message" onblur="editEmail(this)">Wenting_Ye@outlook.com</span></p>
                                         </div>
                                         <div class="pull-right" style="display: none">
                                             <p style="color:#d33724 !important"></p>
@@ -292,9 +305,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!-- /.item -->
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user5.png" alt="Product Image" class="img-circle"
-                                                 style="size:90px">
-                                            <p style="text-align: center"><em>Xxx </em></p>
+                                            <img src="img/user5.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Xie Xiaoxin </h4>
                                         </div>
                                         <div class="product-info">
                                             <div class="callout callout-warning pull-right" style="display: none">
@@ -305,24 +318,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <p class="product-title contact-message" onblur="editName(this)" id="xxx"> Xie Xiaoxin </p>
                                             <p><em>Tel: </em><span class="contact-message" onblur="editTelephone(this)">0591-83796279</span></p>
                                             <p><em>Mob: </em><span class="contact-message" onblur="editCellphone(this)">13241260146</span></p>
-                                            </p>
+                                            <p><em>Loc: </em><span class="contact-message" >Nanjing, China</span></p>
+                                            <p><em>QQ: </em><span class="contact-message" onblur="editQQ(this)" >471731724</span></p>
                                             <p><em>Email：</em><span class="contact-message" onblur="editEmail(this)">xxxxxxx@outlook.com</span>
                                             </p>
                                         </div>
                                     </li>
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user2.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center"><em>Hhs </em></p>
+                                            <img src="img/user2.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Huang Haoshuo </h4>
                                         </div>
                                         <div class="product-info">
-                                            <p class="product-title"><span
-                                                    class="contact-message"> Huang Haoshuo </span></p>
-                                            <p><em>Tel: </em><span class="contact-message">13241260146</span></p>
-                                            <p><em>Location: </em> <span class="contact-message">Beijing, China</span>
-                                            </p>
-                                            <p><em>Email： </em><span class="contact-message">xxxxxxx@uutlook.com</span>
+                                            <div class="callout callout-warning pull-right" style="display: none">
+                                                <h4>Invalid information</h4>
+                                                <br>
+                                                <p></p>
+                                            </div>
+                                            <p class="product-title contact-message" onblur="editName(this)"> Huang Haoshuo </p>
+                                            <p><em>Tel: </em><span class="contact-message" onblur="editTelephone(this)">010-12345678</span></p>
+                                            <p><em>Mob: </em><span class="contact-message" onblur="editCellphone(this)">13232323232</span></p>
+                                            <p><em>Loc: </em><span class="contact-message" >Tsinghua University, Beijing, China</span></p>
+                                            <p><em>QQ: </em><span class="contact-message" onblur="editQQ(this)" >471731724</span></p>
+                                            <p><em>Email：</em><span class="contact-message" onblur="editEmail(this)">xxxxxxx@outlook.com</span>
                                             </p>
                                         </div>
                                         <div class="pull-right" style="display: none">
@@ -343,9 +362,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <ul class="products-list product-list-in-box">
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center"><em>Ye Wenting </em></p>
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Ye Wenting </h4>
                                         </div>
                                         <div class="product-info">
                                             <p class="product-title"> Ye Wenting </p>
@@ -356,9 +375,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </li>
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center"><em>Ye Wenting </em></p>
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Ye Wenting </h4>
                                         </div>
                                         <div class="product-info">
                                             <p class="product-title"> Ye Wenting </p>
@@ -369,9 +388,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </li>
                                     <li class="item">
                                         <div class="product-img">
-                                            <img src="img/user1.png" alt="Product Image" class="img-circle"
-                                                 style="size:80px">
-                                            <p style="text-align: center"><em>Ye Wenting </em></p>
+                                            <img src="img/user1.png" alt="Product Image" class="img-circle">
+                                            <br>
+                                            <h4 style="text-align: center" class="contacts-list-name" >Ye Wenting </h4>
                                         </div>
                                         <div class="product-info">
                                             <p class="product-title"> Ye Wenting </p>
@@ -425,16 +444,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         var i;
         if (state == 0) {
             document.getElementById("all-friend").innerHTML = "全部联系人（可编辑）"
+            alert("You can edit your friends' information now.");
 
             for (i = 0; i < item.length; i++)
                 item[i].setAttribute("contentEditable", "true")
         }
         else
         {
+            var table = document.getElementsByClassName("callout-warning");
             document.getElementById("all-friend").innerHTML = "全部联系人"
 
+            for (i = 0; i < table.length; i++)
+                table[i].style.display = "none";
             for (i = 0; i < item.length; i++)
                 item[i].setAttribute("contentEditable", "false")
+
+            alert("The changes have been submitted. ");
         }
         state = 1 - state;
     }
