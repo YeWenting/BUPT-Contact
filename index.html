@@ -22,46 +22,7 @@
             src="js/demo.js"></script>
     <script type="text/javascript"
             src="js/modernizr-2.6.2.min.js"></script>
-    <script>
-        function checkSignIn()
-        {
-            var email = document.getElementById("signInEmail").value;
-            var password = document.getElementById("signInPass").value;
-
-            /* An easy email verify */
-            var emailPat=/^(.+)@(.+)$/;
-            var matchArray=email.match(emailPat);
-            if (matchArray==null)
-                alert("Email address is not valid! ");
-
-            /* An easy password check */
-            if (password.length < 8) alert("Password should be more than 8 characters!");
-            if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
-            if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
-        }
-
-        function checkSignUp()
-        {
-            var name = document.getElementById("nickname").value;
-            var email = document.getElementById("signUpEmail").value;
-            var password = document.getElementById("signUpPass").value;
-
-            /* An easy name verify */
-            if (name.length > 10) alert("Nickname is limited to 10 characters!");
-            if (name.match(/([A-Za-z])+/) == null) alert("Nickname should contain English letter!");
-
-            /* An easy email verify */
-            var emailPat=/^(.+)@(.+)$/;
-            var matchArray=email.match(emailPat);
-            if (matchArray==null)
-                alert("Email address is not valid! ");
-
-            /* An easy password check */
-            if (password.length < 8) alert("Password should be more than 8 characters!");
-            if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
-            if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
-        }
-    </script>
+    <script type="text/javascript" src="js/verify.js"></script>
 </head>
 
 <body class="home page">
