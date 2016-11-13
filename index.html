@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/librerie.css">
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/AdminLTE.min.css">
-    <link rel="stylesheet" href="./css/skins/skin-blue-light.min.css">
+    <link rel="stylesheet" href="./css/skin-blue-light.min.css">
     <script type="text/javascript"
             src="js/jquery.min.js"></script>
     <script type="text/javascript"
@@ -22,6 +22,46 @@
             src="js/demo.js"></script>
     <script type="text/javascript"
             src="js/modernizr-2.6.2.min.js"></script>
+    <script>
+        function checkSignIn()
+        {
+            var email = document.getElementById("signInEmail").value;
+            var password = document.getElementById("signInPass").value;
+
+            /* An easy email verify */
+            var emailPat=/^(.+)@(.+)$/;
+            var matchArray=email.match(emailPat);
+            if (matchArray==null)
+                alert("Email address is not valid! ");
+
+            /* An easy password check */
+            if (password.length < 8) alert("Password should be more than 8 characters!");
+            if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
+            if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
+        }
+
+        function checkSignUp()
+        {
+            var name = document.getElementById("nickname").value;
+            var email = document.getElementById("signUpEmail").value;
+            var password = document.getElementById("signUpPass").value;
+
+            /* An easy name verify */
+            if (name.length > 10) alert("Nickname is limited to 10 characters!");
+            if (name.match(/([A-Za-z])+/) == null) alert("Nickname should contain English letter!");
+
+            /* An easy email verify */
+            var emailPat=/^(.+)@(.+)$/;
+            var matchArray=email.match(emailPat);
+            if (matchArray==null)
+                alert("Email address is not valid! ");
+
+            /* An easy password check */
+            if (password.length < 8) alert("Password should be more than 8 characters!");
+            if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
+            if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
+        }
+    </script>
 </head>
 
 <body class="home page">
@@ -94,7 +134,7 @@
         <div class="container" >
             <div class="row">
                 <div class="col-sm-6 " style="margin-top: 100px ">
-                    <img src="./img/welcome.png " style="width:60%; height:60%; top" class = "aligncenter" >
+                    <img src="./img/welcome.png " style="width:60%; height:60%;" class = "aligncenter" >
                     <h3 class="animated fadeInLeft" style="text-align:center; margin-right: 10%">Thanks for using:)</h3>
                 </div>
                 <div class="col-sm-6">
@@ -104,20 +144,20 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form class="form-horizontal" >
+                        <form class="form-horizontal" name="sign-in">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Email:</label>
+                                    <label for="signInEmail" class="col-sm-2 control-label">Email:</label>
 
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                        <input type="email" class="form-control" name="email" id="signInEmail" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPassword3" class="col-sm-2 control-label">Password:</label>
+                                    <label for="signInPass" class="col-sm-2 control-label">Password:</label>
 
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" id="signInPass" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -132,7 +172,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" >Sign in</button>
+                                <button type="submit" class="btn btn-primary alignright" onclick="checkSignIn()">Sign in</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
@@ -143,23 +183,23 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" name="sign-up">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label > Nickname </label>
-                                    <input type="email" class="form-control" placeholder="Your Nickname">
+                                    <input type="email" id="nickname" class="form-control" placeholder="Your Nickname">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email">
+                                    <input type="email" id="signUpEmail" class="form-control" id="exampleInputEmail1" placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Your Password">
+                                    <input type="password" id="signUpPass" class="form-control" id="exampleInputPassword1" placeholder="Your Password">
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" >Sign up</button>
+                                <button type="submit" class="btn btn-primary alignright" onclick="checkSignUp()">Sign up</button>
                             </div>
                         </form>
                     </div>
