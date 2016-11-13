@@ -45,11 +45,11 @@ function checkSignUp()
     if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
 }
 
-function editName(item)
+function editName(item, warn)
 {
     var wrong = false;
     var name = item.innerHTML;
-    var s = item.parentNode.childNodes[1].childNodes[5].innerHTML;
+    var s = warn.innerHTML;
 
     /* Check the length */
     if (name.length > 20)
@@ -71,20 +71,20 @@ function editName(item)
     if (wrong)
     {
         item.innerHTML = "null";
-        item.parentNode.childNodes[1].style.display = "inline";
-        item.parentNode.childNodes[1].childNodes[5].innerHTML = s;
+        warn.parentNode.style.display = "inline";
+        warn.innerHTML = s;
     }
     else
     {
-        item.parentNode.childNodes[1].childNodes[5].innerHTML = s;
-        if (s == "") item.parentNode.childNodes[1].style.display = "none";
+        warn.innerHTML = s;
+        if (s == "") warn.parentNode.style.display = "none";
     }
 }
 
-function editCellphone(item)
+function editCellphone(item, warn)
 {
     var phone = item.innerHTML.trim();
-    var s = item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML;
+    var s = warn.innerHTML;
     var mes = "Cellphone number not valid! "
 
     /* Check the length */
@@ -92,20 +92,20 @@ function editCellphone(item)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        item.parentNode.parentNode.childNodes[1].style.display = "inline";
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
+        warn.parentNode.style.display = "inline";
+        warn.innerHTML = s;
     }
     else {
         s = s.replace(mes, "");
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
-        if (s == "") item.parentNode.parentNode.childNodes[1].style.display = "none";
+        warn.innerHTML = s;
+        if (s == "") warn.parentNode.style.display = "none";
     }
 }
 
-function editTelephone(item)
+function editTelephone(item, warn)
 {
     var phone = item.innerHTML.trim();
-    var s = item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML;
+    var s = warn.innerHTML;
     var mes = "Telephone number not valid! "
 
     /* Check the length */
@@ -113,20 +113,20 @@ function editTelephone(item)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        item.parentNode.parentNode.childNodes[1].style.display = "inline";
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
+        warn.parentNode.style.display = "inline";
+        warn.innerHTML = s;
     }
     else
     {
         s = s.replace(mes, "");
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
-        if (s == "") item.parentNode.parentNode.childNodes[1].style.display = "none";
+        warn.innerHTML = s;
+        if (s == "") warn.parentNode.style.display = "none";
     }
 }
-function editEmail(item)
+function editEmail(item, warn)
 {
     var email= item.innerHTML;
-    var s = item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML;
+    var s = warn.innerHTML;
     var mes = "Email not valid! "
 
     /* Check the length */
@@ -134,13 +134,35 @@ function editEmail(item)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        item.parentNode.parentNode.childNodes[1].style.display = "inline";
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
+        warn.parentNode.style.display = "inline";
+        warn.innerHTML = s;
     }
     else
     {
         s = s.replace(mes, "");
-        item.parentNode.parentNode.childNodes[1].childNodes[5].innerHTML = s;
-        if (s == "") item.parentNode.parentNode.childNodes[1].style.display = "none";
+        warn.innerHTML = s;
+        if (s == "") warn.parentNode.style.display = "none";
+    }
+}
+
+function editOICQ(item, warn)
+{
+    var qq= item.innerHTML;
+    var s = warn.innerHTML;
+    var mes = "QQ not valid! "
+
+    /* Check the length */
+    if (isNaN(qq))
+    {
+        if (s.search(mes) < 0) s += mes;
+        item.innerHTML = "null";
+        warn.parentNode.style.display = "inline";
+        warn.innerHTML = s;
+    }
+    else
+    {
+        s = s.replace(mes, "");
+        warn.innerHTML = s;
+        if (s == "") warn.parentNode.style.display = "none";
     }
 }
