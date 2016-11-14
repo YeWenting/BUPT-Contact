@@ -28,7 +28,7 @@
 <div class="alert alert-danger alert-dismissible" style="position: absolute; display: none; width: 100%; margin-top:-101px">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
   <h4><i class="icon fa fa-ban"></i> Invalid information!</h4>
-  <p id="error-tab1"></p>
+  <p id="error-tab"></p>
 </div>
 <div class="register-box">
   <div class="register-logo" >
@@ -40,15 +40,15 @@
 
     <form action="./contact.html" method="post">
       <div class="form-group has-feedback">
-        <input id="xxx" type="text" class="form-control" placeholder="Full name" onchange = "editEmail(this)">
+        <input id="xxx" type="text" class="form-control" placeholder="Full name" onchange = "editName(this)">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Telephone" onchange = "editTelephone(this, null)">
+        <input type="text" class="form-control" placeholder="Telephone" onchange = "editTelephone(this)">
         <span class=" glyphicon glyphicon-earphone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Mobile phone" onchange="editCellphone(this, )">
+        <input type="text" class="form-control" placeholder="Mobile phone" onchange="editCellphone(this)">
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -56,11 +56,11 @@
         <span class="glyphicon glyphicon-home form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="OICQ" onchange="editOICQ(this, this.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[5])">
+        <input type="text" class="form-control" placeholder="OICQ" onchange="editOICQ(this)">
         <span class="glyphicon glyphicon-tree-deciduous form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" onchange="editEmail(this, this.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[5])">
+        <input type="email" class="form-control" placeholder="Email" onchange="editEmail(this)">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group">
@@ -77,7 +77,7 @@
       </div>
       <div class="row">
         <div class="col-xs-4 ">
-          <button type="submit" class="btn btn-primary btn-block btn-flat right-side" >Add</button>
+          <button id="submit-button" type="submit" class="btn btn-primary btn-block btn-flat right-side" >Add</button>
         </div>
         <!-- /.col -->
       </div>
@@ -88,7 +88,7 @@
 <!-- /.register-box -->
 
 <!-- My verify js -->
-<script src="./js/verify.js"></script>
+<script src="./js/add-verify.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="./plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
