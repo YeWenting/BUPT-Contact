@@ -28,7 +28,7 @@
 <div class="alert alert-danger alert-dismissible" style="position: absolute; display: none; width: 100%; margin-top:-101px">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
   <h4><i class="icon fa fa-ban"></i> Invalid information!</h4>
-  <p id="warn-message"></p>
+  <p id="error-tab1"></p>
 </div>
 <div class="register-box">
   <div class="register-logo" >
@@ -40,15 +40,15 @@
 
     <form action="./contact.html" method="post">
       <div class="form-group has-feedback">
-        <input id="xxx" type="text" class="form-control" placeholder="Full name" onchange = "editEmail(this, this.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[5])">
+        <input id="xxx" type="text" class="form-control" placeholder="Full name" onchange = "editEmail(this)">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Telephone" onchange = "editTelephone(this, this.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[5])">
+        <input type="text" class="form-control" placeholder="Telephone" onchange = "editTelephone(this, null)">
         <span class=" glyphicon glyphicon-earphone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Mobile phone" onchange="editCellphone(this, this.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[5])">
+        <input type="text" class="form-control" placeholder="Mobile phone" onchange="editCellphone(this, )">
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

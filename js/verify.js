@@ -45,11 +45,13 @@ function checkSignUp()
     if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
 }
 
-function editName(item, warn)
+function editName(item, warnid)
 {
+    if (warnid != null) warnid = "error-tab" + warnid;
+    else warnid = "error-tab";
     var wrong = false;
     var name = item.innerHTML;
-    var s = warn.innerHTML;
+    var s = document.getElementById(warnid).innerHTML;
 
     /* Check the length */
     if (name.length > 20)
@@ -71,20 +73,21 @@ function editName(item, warn)
     if (wrong)
     {
         item.innerHTML = "null";
-        warn.parentNode.style.display = "inline";
-        warn.innerHTML = s;
+        document.getElementById(warnid).parentNode.style.display = "inline";
+        document.getElementById(warnid).innerHTML = s;
     }
     else
     {
-        warn.innerHTML = s;
-        if (s == "") warn.parentNode.style.display = "none";
+        document.getElementById(warnid).innerHTML = s;
+        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
     }
 }
 
-function editCellphone(item, warn)
+function editCellphone(item, warnid)
 {
+    warnid = "error-tab" + warnid;
     var phone = item.innerHTML.trim();
-    var s = warn.innerHTML;
+    var s = document.getElementById(warnid).innerHTML;
     var mes = "Cellphone number not valid! "
 
     /* Check the length */
@@ -92,20 +95,21 @@ function editCellphone(item, warn)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        warn.parentNode.style.display = "inline";
-        warn.innerHTML = s;
+        document.getElementById(warnid).parentNode.style.display = "inline";
+        document.getElementById(warnid).innerHTML = s;
     }
     else {
         s = s.replace(mes, "");
-        warn.innerHTML = s;
-        if (s == "") warn.parentNode.style.display = "none";
+        document.getElementById(warnid).innerHTML = s;
+        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
     }
 }
 
-function editTelephone(item, warn)
+function editTelephone(item, warnid)
 {
+    warnid = "error-tab" + warnid;
     var phone = item.innerHTML.trim();
-    var s = warn.innerHTML;
+    var s = document.getElementById(warnid).innerHTML;
     var mes = "Telephone number not valid! "
 
     /* Check the length */
@@ -113,20 +117,21 @@ function editTelephone(item, warn)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        warn.parentNode.style.display = "inline";
-        warn.innerHTML = s;
+        document.getElementById(warnid).parentNode.style.display = "inline";
+        document.getElementById(warnid).innerHTML = s;
     }
     else
     {
         s = s.replace(mes, "");
-        warn.innerHTML = s;
-        if (s == "") warn.parentNode.style.display = "none";
+        document.getElementById(warnid).innerHTML = s;
+        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
     }
 }
-function editEmail(item, warn)
+function editEmail(item, warnid)
 {
+    warnid = "error-tab" + warnid;
     var email= item.innerHTML;
-    var s = warn.innerHTML;
+    var s = document.getElementById(warnid).innerHTML;
     var mes = "Email not valid! "
 
     /* Check the length */
@@ -134,21 +139,22 @@ function editEmail(item, warn)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        warn.parentNode.style.display = "inline";
-        warn.innerHTML = s;
+        document.getElementById(warnid).parentNode.style.display = "inline";
+        document.getElementById(warnid).innerHTML = s;
     }
     else
     {
         s = s.replace(mes, "");
-        warn.innerHTML = s;
-        if (s == "") warn.parentNode.style.display = "none";
+        document.getElementById(warnid).innerHTML = s;
+        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
     }
 }
 
-function editOICQ(item, warn)
+function editOICQ(item, warnid)
 {
+    warnid = "error-tab" + warnid;
     var qq= item.innerHTML;
-    var s = warn.innerHTML;
+    var s = document.getElementById(warnid).innerHTML;
     var mes = "QQ not valid! "
 
     /* Check the length */
@@ -156,13 +162,13 @@ function editOICQ(item, warn)
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";
-        warn.parentNode.style.display = "inline";
-        warn.innerHTML = s;
+        document.getElementById(warnid).parentNode.style.display = "inline";
+        document.getElementById(warnid).innerHTML = s;
     }
     else
     {
         s = s.replace(mes, "");
-        warn.innerHTML = s;
-        if (s == "") warn.parentNode.style.display = "none";
+        document.getElementById(warnid).innerHTML = s;
+        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
     }
 }
