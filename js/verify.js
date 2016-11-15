@@ -10,29 +10,34 @@ function checkEmail(email)
     else return true;
 }
 
+var errorState = new Array(5);
+var i;
+for (i = 0; i < 5; ++i)
+    errorState[i] = 0;
+
 $(document).ready(function(){
+
 
     $("#sign-in").click(function(){
         var error = "";
-        var email = document.getElementById("signInEmail").value;
-        var password = document.getElementById("signInPass").value;
+        var email = $("#signInEmail").val();
+        var password = $("#signInPass").val();
 
         /* An easy email verify */
         if (checkEmail(email))
-            error += "Email address is not valid! \n"
+            error += "Email address is not valid! \n";
 
         /* An easy password check */
         if (password.length < 8) error += "Password should be more than 8 characters! \n";
         if (password.match(/([0-9])+/) == null) error += "Password should contain number! \n";
         if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter! \n";
         alert(error);
-    })
+    });
 
     $("#sign-up").click(function(){
         var error = "";
-        var email = document.getElementById("signUpEmail").value;
-        var password = document.getElementById("signUpPass").value;
-        console.log(email);
+        var email = $("#signUpEmail").val();
+        var password = $("#signUpPass").val();
 
         /* An easy email verify */
         if (!checkEmail(email))
@@ -43,14 +48,13 @@ $(document).ready(function(){
         if (password.match(/([0-9])+/) == null) error += "Password should contain number!\n";
         if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter!\n";
         alert(error);
-    })
+    });
 
 });
 
 function editName(item, warnid)
 {
-    if (warnid != null) warnid = "error-tab" + warnid;
-    else warnid = "error-tab";
+    warnid = "error-tab" + warnid;
     var wrong = false;
     var name = item.innerHTML;
     var s = document.getElementById(warnid).innerHTML;
@@ -58,19 +62,11 @@ function editName(item, warnid)
     /* Check the length */
     if (name.length > 20)
     {
-        if (s.search("Nickname is limited to 20 characters! ") < 0) s += "Nickname is limited to 10 characters! ";
+        if (s.search("Nickname is limited to 20 characters! ") < 0) s += "Nickname is limited to 20 characters! ";
         wrong = true;
     }
     else
         s = s.replace("Nickname should contain English letter! ", "");    //replace() return the cut string back
-
-    /* Check if there is characters */
-    if (name.match(/([A-Za-z])+/) == null)
-    {
-        if (s.search("Nickname should contain English letter! ") < 0) s += "Nickname should contain English letter! ";
-        wrong = true;
-    }
-    else s = s.replace("Nickname is limited to 10 characters! ", "");
 
     if (wrong)
     {
@@ -152,7 +148,7 @@ function editEmail(item, warnid)
     }
 }
 
-function editOICQ(item, warnid)
+function editQQ(item, warnid)
 {
     warnid = "error-tab" + warnid;
     var qq= item.innerHTML;
