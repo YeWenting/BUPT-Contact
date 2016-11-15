@@ -10,44 +10,47 @@ function checkEmail(email)
     else return true;
 }
 
-function checkSignIn()
-{
-    var email = document.getElementById("signInEmail").value;
-    var password = document.getElementById("signInPass").value;
+$(document).ready(function(){
 
-    /* An easy email verify */
-    if (checkEmail(email))
-        alert("Email address is not valid! ");
+    $("#sign-in").click(function(){
+        var error = "";
+        var email = document.getElementById("signInEmail").value;
+        var password = document.getElementById("signInPass").value;
 
-    /* An easy password check */
-    if (password.length < 8) alert("Password should be more than 8 characters!");
-    if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
-    if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
-}
+        /* An easy email verify */
+        if (checkEmail(email))
+            error += "Email address is not valid! \n"
 
-function checkSignUp()
-{
-    var name = document.getElementById("nickname").value;
-    var email = document.getElementById("signUpEmail").value;
-    var password = document.getElementById("signUpPass").value;
+        /* An easy password check */
+        if (password.length < 8) error += "Password should be more than 8 characters! \n";
+        if (password.match(/([0-9])+/) == null) error += "Password should contain number! \n";
+        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter! \n";
+        alert(error);
+    })
 
-    /* An easy name verify */
-    if (name.length > 10) alert("Nickname is limited to 10 characters!");
-    if (name.match(/([A-Za-z])+/) == null) alert("Nickname should contain English letter!");
+    $("#sign-up").click(function(){
+        var error = "";
+        var email = document.getElementById("signUpEmail").value;
+        var password = document.getElementById("signUpPass").value;
+        console.log(email);
 
-    /* An easy email verify */
-    if (checkEmail(email))
-        alert("Email address is not valid! ");
+        /* An easy email verify */
+        if (!checkEmail(email))
+            error += "Email address is not valid! \n";
 
-    /* An easy password check */
-    if (password.length < 8) alert("Password should be more than 8 characters!");
-    if (password.match(/([0-9])+/) == null) alert("Password should contain number!");
-    if (password.match(/([A-Za-z])+/) == null) alert("Password should contain English letter!");
-}
+        /* An easy password check */
+        if (password.length < 8) error += "Password should be more than 8 characters!\n";
+        if (password.match(/([0-9])+/) == null) error += "Password should contain number!\n";
+        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter!\n";
+        alert(error);
+    })
+
+});
 
 function editName(item, warnid)
 {
-    warnid = "error-tab" + warnid;
+    if (warnid != null) warnid = "error-tab" + warnid;
+    else warnid = "error-tab";
     var wrong = false;
     var name = item.innerHTML;
     var s = document.getElementById(warnid).innerHTML;
@@ -55,11 +58,11 @@ function editName(item, warnid)
     /* Check the length */
     if (name.length > 20)
     {
-        if (s.search("Nickname is limited to 20 characters! ") < 0) s += "Nickname is limited to 20 characters! ";
+        if (s.search("Nickname is limited to 20 characters! ") < 0) s += "Nickname is limited to 10 characters! ";
         wrong = true;
     }
     else
-        s = s.replace("Nickname is limited to 20 characters! ", "");    //replace() return the cut string back
+        s = s.replace("Nickname should contain English letter! ", "");    //replace() return the cut string back
 
     /* Check if there is characters */
     if (name.match(/([A-Za-z])+/) == null)
@@ -67,7 +70,7 @@ function editName(item, warnid)
         if (s.search("Nickname should contain English letter! ") < 0) s += "Nickname should contain English letter! ";
         wrong = true;
     }
-    else s = s.replace("Nickname should contain English letter! ", "");
+    else s = s.replace("Nickname is limited to 10 characters! ", "");
 
     if (wrong)
     {
@@ -149,7 +152,7 @@ function editEmail(item, warnid)
     }
 }
 
-function editQQ(item, warnid)
+function editOICQ(item, warnid)
 {
     warnid = "error-tab" + warnid;
     var qq= item.innerHTML;
@@ -157,7 +160,7 @@ function editQQ(item, warnid)
     var mes = "QQ not valid! "
 
     /* Check the length */
-    if (isNaN(qq) || qq.length < 3)
+    if (isNaN(qq))
     {
         if (s.search(mes) < 0) s += mes;
         item.innerHTML = "null";

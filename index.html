@@ -91,7 +91,7 @@
     </div>
     <section class="grigio" style=" background: linear-gradient(white, #D3D8E8) ">
         <link rel="stylesheet" href="./css/AdminLTE.min.css">
-        <link rel="stylesheet" href="./css/skins/skin-blue-light.min.css">
+        <link rel="stylesheet" href="./css/skin-blue-light.min.css">
         <div class="container" >
             <div class="row">
                 <div class="col-sm-6 " style="margin-top: 100px ">
@@ -133,7 +133,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" onclick="checkSignIn()">Sign in</button>
+                                <button type="submit" class="btn btn-primary alignright" id="sign-in">Sign in</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
@@ -148,19 +148,19 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label > Nickname </label>
-                                    <input type="email" id="nickname" class="form-control" placeholder="Your Nickname">
+                                    <input type="text" id="nickname" class="form-control" placeholder="Your Nickname">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" id="signUpEmail" class="form-control" id="exampleInputEmail1" placeholder="Enter your email">
+                                    <label for="signUpEmail">Email address</label>
+                                    <input type="email" id="signUpEmail" class="form-control"  placeholder="Enter your email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" id="signUpPass" class="form-control" id="exampleInputPassword1" placeholder="Your Password">
+                                    <label for="signUpPass">Password</label>
+                                    <input type="password" id="signUpPass" class="form-control" placeholder="Your Password">
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" onclick="checkSignUp()">Sign up</button>
+                                <button type="submit" class="btn btn-primary alignright" id="sign-up">Sign up</button>
                             </div>
                         </form>
                     </div>
