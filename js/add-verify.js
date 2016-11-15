@@ -113,7 +113,7 @@ function editEmail(item)
     }
 }
 
-function editOICQ(item)
+function editQQ(item)
 {
     var warnid = "error-tab";
     var qq= item.value;
@@ -121,7 +121,7 @@ function editOICQ(item)
     var mes = "QQ not valid! "
 
     /* Check the length */
-    if (isNaN(qq))
+    if (isNaN(qq) || qq.length < 3)
     {
         if (s.search(mes) < 0) s += mes;
         item.value = "null";
