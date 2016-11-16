@@ -16,6 +16,14 @@
   <link rel="stylesheet" href="./css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="./plugins/iCheck/square/blue.css">
+  <!--Local css-->
+  <link rel="stylesheet" href="./css/add.css">
+  <!--jQuery-->
+  <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+  <!--validate plugin-->
+  <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+  <!-- My verify js -->
+  <script src="./js/add-verify.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,29 +46,29 @@
   <div class="register-box-body">
     <p class="login-box-msg">Add a new friend.</p>
 
-    <form action="./contact.html" method="post">
+    <form method="get" id="form">
       <div class="form-group has-feedback">
-        <input id="xxx" type="text" class="form-control" placeholder="Full name" onchange = "editName(this)">
+        <input name="name" type="text" class="form-control" placeholder="Full name" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Telephone" onchange = "editTelephone(this)">
+        <input name="telephone" class="form-control" placeholder="Telephone" required minlength=10" maxlength="13">
         <span class=" glyphicon glyphicon-earphone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Mobile phone" onchange="editCellphone(this)">
+        <input name="mobilephone"  class="form-control" placeholder="Mobile phone" digit required minlength=11" maxlength="11" >
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Location">
+        <input id="location" type="text" class="form-control" placeholder="Location" required >
         <span class="glyphicon glyphicon-home form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="OICQ" onchange="editQQ(this)">
+        <input name="OICQ" type="text" class="form-control" placeholder="OICQ" required digit >
         <span class="glyphicon glyphicon-tree-deciduous form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" onchange="editEmail(this)">
+        <input name="email" type="email" class="form-control" placeholder="Email" required email >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group">
@@ -86,11 +94,6 @@
   <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
-
-<!-- My verify js -->
-<script src="./js/add-verify.js"></script>
-<!-- jQuery 2.2.3 -->
-<script src="./plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="./js/bootstrap.min.js"></script>
 <!-- iCheck -->

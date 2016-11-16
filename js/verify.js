@@ -24,7 +24,7 @@ $(document).ready(function(){
         var password = $("#signInPass").val();
 
         /* An easy email verify */
-        if (checkEmail(email))
+        if (!checkEmail(email))
             error += "Email address is not valid! \n";
 
         /* An easy password check */
