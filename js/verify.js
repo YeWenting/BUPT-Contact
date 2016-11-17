@@ -2,23 +2,43 @@
  * Created by YeWenting on 2016/11/13.
  */
 
-function checkEmail(email)
-{
-    var emailPat=/^(.+)@(.+)$/;
-    var matchArray=email.match(emailPat);
-    if (matchArray==null) return false;
+/******************
+ * TODO:
+ *      链接数据库后，对于非法操作要复原其原来数据。
+ */
+
+$(".delete-button").on("click", function(){
+    $.confirm({
+        title: 'Confirm Deletion',
+        content: "Do you REALLY want to delete?",
+        icon: 'fa fa-question-circle',
+        animation: 'scale',
+        closeAnimation: 'scale',
+        opacity: 0.5,
+        buttons: {
+            'confirm': {
+                text: 'Yes',
+                btnClass: 'btn-info',
+                action: function () {
+                    $.alert('Delete successfully.');
+                }
+            },
+            cancel: function () {
+            },
+        }
+    });
+});
+
+function checkEmail(email) {
+    var emailPat = /^(.+)@(.+)$/;
+    var matchArray = email.match(emailPat);
+    if (matchArray == null) return false;
     else return true;
 }
 
-var errorState = new Array(5);
-var i;
-for (i = 0; i < 5; ++i)
-    errorState[i] = 0;
+$(document).ready(function () {
 
-$(document).ready(function(){
-
-
-    $("#sign-in").click(function(){
+    $("#sign-in").click(function () {
         var error = "";
         var email = $("#signInEmail").val();
         var password = $("#signInPass").val();
@@ -34,7 +54,7 @@ $(document).ready(function(){
         alert(error);
     });
 
-    $("#sign-up").click(function(){
+    $("#sign-up").click(function () {
         var error = "";
         var email = $("#signUpEmail").val();
         var password = $("#signUpPass").val();
@@ -50,123 +70,121 @@ $(document).ready(function(){
         alert(error);
     });
 
+    $(".edit-button").click(function () {
+
+        $(this).closest("div").find(".contact-message").attr("contenteditable", "true");
+        var button = $("<i></i>").attr("class", "fa fa-fw fa-check-square-o check-button");
+        $(this).after(button);
+        alert("You can edit " + $(this).closest("div").find(".name").text() + "'s info now.");
+        $(this).remove();
+
+        $(".check-button").click(function () {
+            $(this).closest("div").find(".contact-message").attr("contenteditable", "false");
+            var button = $("<i></i>").attr("class", "fa fa-fw fa-edit edit-button");
+            $(this).after(button);
+            // TODO: The submit function
+            alert($(this).closest("div").find(".name").text() + "'s info has been updated.");
+            $(this).remove();
+        });
+    });
+
+    $(".name").blur(function () {
+
+        var name = $(this).text();
+        var s = $(this).closest("div").find(".error-tab").text();
+        var mes = "Nickname is limited to 20 characters! ";
+
+        /* Check the length */
+        if (name.length > 20) {
+            if (s.search(mes) < 0) s += mes;
+            $(this).text("null");
+            $(this).closest("div").find(".callout").show();
+        }
+        else {
+            $(this).closest("li").find("h4").text(name);
+            s = s.replace(mes, "");    //replace() return the cut string back
+            if (s == "") $(this).closest("div").find(".callout").hide();
+        }
+        $(this).closest("div").find(".error-tab").text(s);
+    });
+
+    $(".telephone").blur(function () {
+
+        var phone = $(this).text();
+        var s = $(this).closest("div").find(".error-tab").text();
+        var mes = "Telephone number not valid! ";
+
+        /* Check the length */
+        if (phone.match(/\d{2}-\d{8}|\d{3}-\d{8}|\d{10}|\d{11}/) == null) {
+            if (s.search(mes) < 0) s += mes;
+            $(this).text("null");
+            $(this).closest("div").find(".callout").show();
+        }
+        else {
+            s = s.replace(mes, "");    //replace() return the cut string back
+            if (s == "") $(this).closest("div").find(".callout").hide();
+        }
+        $(this).closest("div").find(".error-tab").text(s);
+    });
+
+    $(".mobilephone").blur(function () {
+
+        var phone = $(this).text();
+        var s = $(this).closest("div").find(".error-tab").text();
+        var mes = "Mobile phone number not valid! ";
+
+        /* Check the length */
+        if (phone.match(/(86)*0*13\d{9}/) == null) {
+            if (s.search(mes) < 0) s += mes;
+            $(this).text("null");
+            $(this).closest("div").find(".callout").show();
+        }
+        else {
+            s = s.replace(mes, "");    //replace() return the cut string back
+            if (s == "") $(this).closest("div").find(".callout").hide();
+        }
+        $(this).closest("div").find(".error-tab").text(s);
+    });
+
+    $(".OICQ").blur(function () {
+
+        var qq = $(this).text();
+        var s = $(this).closest("div").find(".error-tab").text();
+        var mes = "QQ number not valid! ";
+
+        /* Check the length */
+        if (isNaN(qq)) {
+            if (s.search(mes) < 0) s += mes;
+            $(this).text("null");
+            $(this).closest("div").find(".callout").show();
+        }
+        else {
+            s = s.replace(mes, "");    //replace() return the cut string back
+            if (s == "") $(this).closest("div").find(".callout").hide();
+        }
+        $(this).closest("div").find(".error-tab").text(s);
+    });
+
+    $(".email").blur(function () {
+
+        var email = $(this).text();
+        var s = $(this).closest("div").find(".error-tab").text();
+        var mes = "Email address not valid! ";
+
+        /* Check the length */
+        if (!checkEmail(email)) {
+            if (s.search(mes) < 0) s += mes;
+            $(this).text("null");
+            $(this).closest("div").find(".callout").show();
+        }
+        else {
+            s = s.replace(mes, "");    //replace() return the cut string back
+            if (s == "") $(this).closest("div").find(".callout").hide();
+        }
+        $(this).closest("div").find(".error-tab").text(s);
+    });
 });
 
-function editName(item, warnid)
-{
-    warnid = "error-tab" + warnid;
-    var wrong = false;
-    var name = item.innerHTML;
-    var s = document.getElementById(warnid).innerHTML;
+// confirmation
 
-    /* Check the length */
-    if (name.length > 20)
-    {
-        if (s.search("Nickname is limited to 20 characters! ") < 0) s += "Nickname is limited to 20 characters! ";
-        wrong = true;
-    }
-    else
-        s = s.replace("Nickname should contain English letter! ", "");    //replace() return the cut string back
 
-    if (wrong)
-    {
-        item.innerHTML = "null";
-        document.getElementById(warnid).parentNode.style.display = "inline";
-        document.getElementById(warnid).innerHTML = s;
-    }
-    else
-    {
-        document.getElementById(warnid).innerHTML = s;
-        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
-    }
-}
-
-function editCellphone(item, warnid)
-{
-    warnid = "error-tab" + warnid;
-    var phone = item.innerHTML.trim();
-    var s = document.getElementById(warnid).innerHTML;
-    var mes = "Cellphone number not valid! "
-
-    /* Check the length */
-    if (phone.match(/(86)*0*13\d{9}/) == null)
-    {
-        if (s.search(mes) < 0) s += mes;
-        item.innerHTML = "null";
-        document.getElementById(warnid).parentNode.style.display = "inline";
-        document.getElementById(warnid).innerHTML = s;
-    }
-    else {
-        s = s.replace(mes, "");
-        document.getElementById(warnid).innerHTML = s;
-        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
-    }
-}
-
-function editTelephone(item, warnid)
-{
-    warnid = "error-tab" + warnid;
-    var phone = item.innerHTML.trim();
-    var s = document.getElementById(warnid).innerHTML;
-    var mes = "Telephone number not valid! "
-
-    /* Check the length */
-    if (phone.match(/\d{2}-\d{8}|\d{3}-\d{8}|\d{10}|\d{11}/) == null)
-    {
-        if (s.search(mes) < 0) s += mes;
-        item.innerHTML = "null";
-        document.getElementById(warnid).parentNode.style.display = "inline";
-        document.getElementById(warnid).innerHTML = s;
-    }
-    else
-    {
-        s = s.replace(mes, "");
-        document.getElementById(warnid).innerHTML = s;
-        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
-    }
-}
-function editEmail(item, warnid)
-{
-    warnid = "error-tab" + warnid;
-    var email= item.innerHTML;
-    var s = document.getElementById(warnid).innerHTML;
-    var mes = "Email not valid! "
-
-    /* Check the length */
-    if (!checkEmail(email))
-    {
-        if (s.search(mes) < 0) s += mes;
-        item.innerHTML = "null";
-        document.getElementById(warnid).parentNode.style.display = "inline";
-        document.getElementById(warnid).innerHTML = s;
-    }
-    else
-    {
-        s = s.replace(mes, "");
-        document.getElementById(warnid).innerHTML = s;
-        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
-    }
-}
-
-function editQQ(item, warnid)
-{
-    warnid = "error-tab" + warnid;
-    var qq= item.innerHTML;
-    var s = document.getElementById(warnid).innerHTML;
-    var mes = "QQ not valid! "
-
-    /* Check the length */
-    if (isNaN(qq))
-    {
-        if (s.search(mes) < 0) s += mes;
-        item.innerHTML = "null";
-        document.getElementById(warnid).parentNode.style.display = "inline";
-        document.getElementById(warnid).innerHTML = s;
-    }
-    else
-    {
-        s = s.replace(mes, "");
-        document.getElementById(warnid).innerHTML = s;
-        if (s == "") document.getElementById(warnid).parentNode.style.display = "none";
-    }
-}
