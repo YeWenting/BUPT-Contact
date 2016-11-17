@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/AdminLTE.min.css">
     <link rel="stylesheet" href="./css/skin-blue-light.min.css">
+    <link rel="stylesheet" href="./css/jquery-confirm.min.css">
     <script type="text/javascript"
-            src="js/jquery.min.js"></script>
+            src="plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script type="text/javascript"
             src="js/app.min.js"></script>
     <script type="text/javascript"
             src="js/demo.js"></script>
+    <script src="js/jquery-confirm.min.js"></script>
     <script type="text/javascript"
             src="js/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/verify.js"></script>
@@ -105,7 +107,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form class="form-horizontal" name="sign-in">
+                        <form class="form-horizontal" name="sign-in" id="sign-in-form">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="signInEmail" class="col-sm-2 control-label">Email:</label>
@@ -133,7 +135,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" id="sign-in">Sign in</button>
+                                <button type="button" class="btn btn-primary alignright" id="sign-in">Sign in</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
@@ -144,7 +146,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" name="sign-up">
+                        <form role="form" name="sign-up" id="sign-up-form">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label > Nickname </label>
@@ -160,7 +162,7 @@
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary alignright" id="sign-up">Sign up</button>
+                                <button type="button" class="btn btn-primary alignright" id="sign-up">Sign up</button>
                             </div>
                         </form>
                     </div>

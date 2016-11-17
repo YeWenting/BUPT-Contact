@@ -7,7 +7,7 @@
  *      链接数据库后，对于非法操作要复原其原来数据。
  */
 
-$(".delete-button").on("click", function(){
+$(".delete-button").on("click", function () {
     $.confirm({
         title: 'Confirm Deletion',
         content: "Do you REALLY want to delete?",
@@ -38,20 +38,35 @@ function checkEmail(email) {
 
 $(document).ready(function () {
 
-    $("#sign-in").click(function () {
+    $("#sign-in").on('click', function () {
         var error = "";
         var email = $("#signInEmail").val();
         var password = $("#signInPass").val();
 
         /* An easy email verify */
         if (!checkEmail(email))
-            error += "Email address is not valid! \n";
+            error += "Email address is not valid! <br>";
 
         /* An easy password check */
-        if (password.length < 8) error += "Password should be more than 8 characters! \n";
-        if (password.match(/([0-9])+/) == null) error += "Password should contain number! \n";
-        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter! \n";
-        alert(error);
+        if (password.length < 8) error += "Password should be more than 8 characters! <br>";
+        if (password.match(/([0-9])+/) == null) error += "Password should contain number! <br>";
+        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter! <br>";
+        if (error != "") {
+            console.log(error);
+            $.alert({
+                title: 'Alert!',
+                content: error,
+                icon: 'fa fa-fw fa-ban',
+                animation: 'zoom',
+                closeAnimation: 'zoom',
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
+                    }
+                }
+            });
+        }
     });
 
     $("#sign-up").click(function () {
@@ -61,13 +76,28 @@ $(document).ready(function () {
 
         /* An easy email verify */
         if (!checkEmail(email))
-            error += "Email address is not valid! \n";
+            error += "Email address is not valid! <br>";
 
         /* An easy password check */
-        if (password.length < 8) error += "Password should be more than 8 characters!\n";
-        if (password.match(/([0-9])+/) == null) error += "Password should contain number!\n";
-        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter!\n";
-        alert(error);
+        if (password.length < 8) error += "Password should be more than 8 characters!<br>";
+        if (password.match(/([0-9])+/) == null) error += "Password should contain number!<br>";
+        if (password.match(/([A-Za-z])+/) == null) error += "Password should contain English letter!<br>";
+        if (error != "") {
+            console.log(error);
+            $.alert({
+                title: 'Alert!',
+                content: error,
+                icon: 'fa fa-fw fa-ban',
+                animation: 'zoom',
+                closeAnimation: 'zoom',
+                buttons: {
+                    okay: {
+                        text: 'Okay',
+                        btnClass: 'btn-primary'
+                    }
+                }
+            });
+        }
     });
 
     $(".edit-button").click(function () {
